@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import { FaBell, FaUserCircle } from 'react-icons/fa';
+import { FaBell } from 'react-icons/fa';
 
 const NotificationsComponent=() => {
     const [isNotificationOpen, setIsNotificationOpen] = useState(false);

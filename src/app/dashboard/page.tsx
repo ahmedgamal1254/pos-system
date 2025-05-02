@@ -1,5 +1,4 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import { Card } from '@/components/ui/functions';
 import Footer from '@/components/layout/Footer';
@@ -8,7 +7,6 @@ import DashboardCharts from '@/components/charts/chart';
 import SalesLineChart from '@/components/charts/sales';
 import CategoriesPieChart from '@/components/charts/categories';
 export default function DashboardPage() {
-  const router = useRouter();
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 text-right" dir="rtl">

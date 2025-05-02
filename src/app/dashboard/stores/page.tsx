@@ -1,10 +1,7 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import Header from '@/components/layout/Header';
-import { Card } from '@/components/ui/functions';
 import Footer from '@/components/layout/Footer';
 import Sidebar from '@/components/layout/Sidebar';
-import DashboardCharts from '@/components/charts/chart';
 import StoresTable from '@/components/table/table';
 export default function DashboardPage() {
   return (

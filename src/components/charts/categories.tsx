@@ -1,7 +1,5 @@
 import {
-  BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
-  LineChart, Line, CartesianGrid, Legend, PieChart, Pie, Cell,
-  AreaChart, Area
+  Tooltip, ResponsiveContainer, PieChart, Pie, Cell,
 } from 'recharts';
 
 

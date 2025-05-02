@@ -1,12 +1,29 @@
 "use client";
 import { useState, useEffect } from "react";
-import { DataGridPro } from "@mui/x-data-grid-pro";
-import { Box, Avatar, Typography } from "@mui/material";
+import { Box, Avatar } from "@mui/material";
 import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
+import type { GridRenderCellParams } from '@mui/x-data-grid';
+
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  sale_price: number;
+  image: string;
+};
+
+type Row = {
+  id: number;
+  title: string;
+  price: number;
+  min_price: number;
+  max_price: number;
+  image: string;
+};
 
 export default function ProductsTable() {
-  const [rows, setRows] = useState([]);
+  const [rows, setRows] = useState<Row[]>([]);
   const [rowCount, setRowCount] = useState(0);
   const [paginationModel, setPaginationModel] = useState({
     page: 0, // 0-based index
@@ -14,38 +31,38 @@ export default function ProductsTable() {
   });
   const [loading, setLoading] = useState(false);
 
-  const fetchProducts = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get("https://ecommerce.ahmedgamaldev.com/api/products", {
-        params: {
-          page: paginationModel.page + 1, // API uses 1-based index
-          limit: paginationModel.pageSize,
-        },
-      });
-
-      const data = response.data.data.data;
-      const pagination = response.data.data.pagination;
-
-      const formatted = data.map((item) => ({
-        id: item.id,
-        title: item.title,
-        price: item.price,
-        min_price: item.price,
-        max_price: item.sale_price,
-        image: item.image,
-      }));
-
-      setRows(formatted);
-      setRowCount(pagination.total);
-    } catch (error) {
-      console.error("فشل في جلب المنتجات", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get("https://ecommerce.ahmedgamaldev.com/api/products", {
+          params: {
+            page: paginationModel.page + 1, // API uses 1-based index
+            limit: paginationModel.pageSize,
+          },
+        });
+  
+        const data:Product[] = response.data.data.data;
+        const pagination = response.data.data.pagination;
+  
+        const formatted = data.map((item) => ({
+          id: item.id,
+          title: item.title,
+          price: item.price,
+          min_price: item.price,
+          max_price: item.sale_price,
+          image: item.image,
+        }));
+  
+        setRows(formatted);
+        setRowCount(pagination.total);
+      } catch (error) {
+        console.error("فشل في جلب المنتجات", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchProducts();
   }, [paginationModel.page, paginationModel.pageSize]);
 
@@ -59,7 +76,7 @@ export default function ProductsTable() {
       field: "image",
       headerName: "صورة",
       width: 80,
-      renderCell: (params) => (
+      renderCell: (params:GridRenderCellParams) => (
         <Avatar src={params.value} variant="rounded" alt="صورة المنتج" />
       ),
       sortable: false,
