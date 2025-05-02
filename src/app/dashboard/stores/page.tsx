@@ -7,8 +7,6 @@ import Sidebar from '@/components/layout/Sidebar';
 import DashboardCharts from '@/components/charts/chart';
 import StoresTable from '@/components/table/table';
 export default function DashboardPage() {
-  const router = useRouter();
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 text-right" dir="rtl">
       {/* Header */}
