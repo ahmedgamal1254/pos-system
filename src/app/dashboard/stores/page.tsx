@@ -14,7 +14,7 @@ export default function DashboardPage() {
         <Sidebar />
 
         {/* Main Content */}
-        <main className="flex-1 p-6 overflow-y-auto mr-60 mt-15">
+        <main className="flex-1 p-6 overflow-y-auto lg:mr-60 mt-15">
             <StoresTable />
             <div className='space-y-1'></div>
         </main>

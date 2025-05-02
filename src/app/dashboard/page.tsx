@@ -18,7 +18,7 @@ export default function DashboardPage() {
         <Sidebar />
 
         {/* Main Content */}
-        <main className="flex-1 p-6 overflow-y-auto mr-60">
+        <main className="flex-1 p-6 overflow-y-auto lg:mr-60">
           <h2 className="text-2xl font-bold mb-6 text-blue-600">مرحبًا بك 👋</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

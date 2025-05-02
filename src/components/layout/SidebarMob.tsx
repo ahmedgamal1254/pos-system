@@ -5,9 +5,9 @@ import {
   FaUndo, FaMoneyBill, FaUserShield
 } from 'react-icons/fa';
 
-const Sidebar=()=>{
+const SidebarMob=()=>{
     return (
-      <aside className="hidden lg:block scroll fixed right-0 top-18 h-[calc(100vh-2rem)] w-64 overflow-y-auto bg-white shadow-lg border-r text-sm p-4 space-y-4 mb-10">
+      <aside className="w-64 bg-white shadow-lg border-r text-sm p-4 space-y-4 mb-10">
         <div className="space-y-1">
           <h3 className="text-xs font-bold text-gray-500 px-2">الأساسية</h3>
           <SidebarItem icon={<FaHome />} label="الرئيسية" href="/dashboard" />
@@ -43,4 +43,4 @@ const Sidebar=()=>{
     )
 }
 
-export default Sidebar;
+export default SidebarMob;
