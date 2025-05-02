@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+.almarai-light {
+  font-family: "Almarai", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.almarai-regular {
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.almarai-bold {
+  font-family: "Almarai", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.almarai-extrabold {
+  font-family: "Almarai", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+*{
+  font-family: "Almarai", sans-serif;  
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +51,30 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 6px;
+  margin-right: -10px;
+  display: none;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #504f4f;
+  border-radius: 4px;
+  display: block;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: transparent;
+  display: block;
+}
+
+/* Show scrollbar on hover */
+.scroll:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.MuiDataGrid-cell.MuiDataGrid-cell--textLeft {
+  text-align: right!important;
 }
